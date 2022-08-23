@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public Transform camy;
     public LayerMask groundMask;
     public WitchyControls contolMe;
-    //public Animator animator;
+    public Animator animator;
     public AudioSource jump;
     
 
@@ -87,12 +87,7 @@ public class PlayerController : MonoBehaviour
         {
             jumpIsPressed = false;
         }
-        /*
-        animator.SetFloat("Horizontal",Mathf.Abs(rb.velocity.x));
-        animator.SetFloat("MoveStickValue", Mathf.Abs(movementX));
-        animator.SetBool("onground", onGround);
-        animator.SetFloat("Vertical",rb.velocity.y);
-        */
+        animator.SetFloat("walk", Mathf.Abs(rb.velocity.x));
     }
     void FixedUpdate()
     {
