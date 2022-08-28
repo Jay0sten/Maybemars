@@ -7,12 +7,13 @@ public class PlayerStats : MonoBehaviour
 {
     [Header("Basic Stats")]
     [SerializeField] private float MaxOxygen;
-    [SerializeField] private float Oxygen;
+    [SerializeField] public  float Oxygen;
     [SerializeField] private float MaxHealth;
     [SerializeField] private float Health;
 
     [Header("Components")]
     public StatBar OxygenStatBar;
+    public StatBar HealthStatBar;
 
 
     
@@ -22,11 +23,20 @@ public class PlayerStats : MonoBehaviour
         Oxygen = MaxOxygen;
         Health = MaxHealth;
         OxygenStatBar.SetValue(Oxygen);
+        HealthStatBar.SetValue(Health);
     }
 
     private void Update()
     {
-        
+        if(Oxygen <= 0)
+        {
+            Die();
+        }
 
+    }
+
+    public void Die()
+    {
+        Debug.Log("You Died...");
     }
 }

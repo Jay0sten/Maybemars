@@ -27,4 +27,6 @@ public class StatBar : MonoBehaviour
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
 
+    
+
 }

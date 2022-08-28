@@ -5,14 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
+    [Header("Components")]
     Rigidbody2D rb;
     public Transform camy;
     public LayerMask groundMask;
     public WitchyControls contolMe;
     public Animator animator;
     public AudioSource jump;
-    
+    private PlayerStats stats;
 
     
     float movementX;
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public float jumpDelay = 0.25f;
     float jumpTimer;
     public bool jumpIsPressed;
+
     
 
 
@@ -50,6 +51,8 @@ public class PlayerController : MonoBehaviour
         {
             Flip();
         }
+
+        
 
       
 
@@ -68,6 +71,7 @@ public class PlayerController : MonoBehaviour
         contolMe = new WitchyControls();
         contolMe.Player.Jump.performed += context => OnJump();
         contolMe.Player.Special.performed += context => OnSpecial();
+        stats = GetComponent<PlayerStats>();
     }
 
     private void Start()
@@ -88,6 +92,11 @@ public class PlayerController : MonoBehaviour
             jumpIsPressed = false;
         }
         animator.SetFloat("walk", Mathf.Abs(rb.velocity.x));
+        if(Mathf.Abs(rb.velocity.x) > 0.15)
+        {
+            stats.Oxygen -= 0.001f;
+            stats.OxygenStatBar.SetValue(stats.Oxygen);
+        }
     }
     void FixedUpdate()
     {
