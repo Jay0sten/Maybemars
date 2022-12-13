@@ -9,7 +9,11 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
     public Transform camy;
     public LayerMask groundMask;
-    public WitchyControls contolMe;
+
+    //public WitchyControls contolMe;
+    public InputActionAsset contolMe;
+    public InputActionMap Player;
+    public InputAction Jump;
     public Animator animator;
     public AudioSource jump;
     private PlayerStats stats;
@@ -43,10 +47,17 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 offset;
 
+
+    //Private Variables
+    bool isPaused = false;
+
+
+    
     private void OnMove(InputValue movementValue)
     {
         Vector2 movementVector = movementValue.Get<Vector2>();
         movementX = movementVector.x;
+    
         if((movementX > 0.1 && !facingRight) || (movementX < 0 && facingRight))
         {
             Flip();
@@ -68,10 +79,21 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        contolMe = new WitchyControls();
+        contolMe = this.GetComponent<PlayerInput>().actions;
+        Player = contolMe.FindActionMap("Player");
+        /*
         contolMe.Player.Jump.performed += context => OnJump();
         contolMe.Player.Special.performed += context => OnSpecial();
+        contolMe.Player.MenuButton.performed += context => OnMenuButton();
+        
+
+        */
+        
+        
         stats = GetComponent<PlayerStats>();
+
+
+       
     }
 
     private void Start()
@@ -83,7 +105,7 @@ public class PlayerController : MonoBehaviour
     {
 
         onGround = Physics2D.Raycast(transform.position + colliderOffset, Vector2.down, groundLength, groundMask) || Physics2D.Raycast(transform.position - colliderOffset, Vector2.down, groundLength, groundMask);
-        if (contolMe.Player.Jump.IsPressed())
+        if (Player.FindAction("Jump").IsPressed())
         {
             jumpIsPressed = true;
         }
@@ -92,11 +114,18 @@ public class PlayerController : MonoBehaviour
             jumpIsPressed = false;
         }
         animator.SetFloat("walk", Mathf.Abs(rb.velocity.x));
-        if(Mathf.Abs(rb.velocity.x) > 0.15)
+        animator.SetFloat("vertical", rb.velocity.y);
+        animator.SetBool("jumpPressed", jumpIsPressed);
+        animator.SetBool("onGround", onGround);
+        animator.SetFloat("horizontal", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("moveStickValue", Mathf.Abs(movementX));
+        if (Mathf.Abs(rb.velocity.x) > 0.15)
         {
-            stats.Oxygen -= 0.001f;
+            stats.Oxygen -= 0.0001f;
             stats.OxygenStatBar.SetValue(stats.Oxygen);
         }
+
+        
     }
     void FixedUpdate()
     {
@@ -181,6 +210,13 @@ public class PlayerController : MonoBehaviour
         
     }
 
+   void OnMenuButton()
+    {
+       
+
+        
+    }
+
 
     private void OnDrawGizmos()
     {
@@ -191,14 +227,25 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        contolMe.Player.Enable();
+        Player.FindAction("Jump").performed += context => OnJump();
+        Player.FindAction("Special").performed += context => OnSpecial();
+        Player.FindAction("MenuButton").performed += context => OnMenuButton();
+        Jump = Player.FindAction("Jump");
+        Player.Enable();
+        
+        
     }
     private void OnDisable()
     {
-        contolMe.Player.Disable();
+        Player.FindAction("Jump").performed += context => OnJump();
+        Player.FindAction("Special").performed += context => OnSpecial();
+        Player.FindAction("MenuButton").performed += context => OnMenuButton();
+        Player.Disable();
     }
 
+     
 
 
-    
+
+
 }

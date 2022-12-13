@@ -33,10 +33,18 @@ public class PlayerStats : MonoBehaviour
             Die();
         }
 
+        
+
     }
 
     public void Die()
     {
         Debug.Log("You Died...");
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Health -= damage;
+        HealthStatBar.SetValue(Health);
     }
 }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3944dfe6cee3c054c892898afeee7ba0, type: 3}
+  m_Name: SceneGreeting
+  m_EditorClassIdentifier: 
+  Title: Welcome
+  Sentences:
+  - Your ship has been crashlanded on the barren planet of Mars...
+  - Your oxygen supply is limited, and you can't seem to get any communication with
+    home.
+  - Perhaps Mars has the resourses you need to survive. Perhaps not. Hope is all
+    you have...
