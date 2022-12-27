@@ -8,13 +8,18 @@ using UnityEngine.AI;
 public class BehaviorManager : StateMachine
 {
     //Components
-    [SerializeField] private Transform[] _points;
+    [SerializeField] public Transform[] _points;
     public Rigidbody2D _rb;
 
     //Fields
     [SerializeField] public float _speed = 20;
     [SerializeField] public float _maxSpeed = 18;
     public float _MovementX;
+
+    //Engaging
+    public Transform target;
+    public float _lookRadius;
+    public Collider2D[] sightsToSee;
 
 
     private void Awake()
@@ -49,6 +54,8 @@ public class BehaviorManager : StateMachine
 
 
         }
+
+        Gizmos.DrawWireSphere(transform.position, _lookRadius);
         
         
         

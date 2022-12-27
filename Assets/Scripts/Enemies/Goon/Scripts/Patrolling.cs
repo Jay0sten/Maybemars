@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class Patrolling : State
 {
+
+    float _lookTime = 1.5f;
+   
+    float _maxLookTime = 1.5f;
+
+    float _speed;
+
+    int _index;
+
+
+
     public Patrolling(BehaviorManager behaviorManager) : base(behaviorManager)
     {
 
@@ -12,7 +23,11 @@ public class Patrolling : State
     }
     public override IEnumerator Start()
     {
-
+    
+        _speed = 2.5f;
+        _index = 1;
+        behaviorManager.transform.position = behaviorManager._points[0].position;
+        
         return base.Start();
     }
 
@@ -22,25 +37,59 @@ public class Patrolling : State
     }
     public override void Active()
     {
-        Debug.Log("Its Working");
-        if(Input.GetKey(KeyCode.Z))
+        checkForPlayer();
+        if (behaviorManager.transform.position.x == behaviorManager._points[_index].position.x)
         {
-            behaviorManager._MovementX = 1;
-
-
+          updateIndex();
+            
+            
 
         }
-        else
-        {
-            behaviorManager._MovementX = 0;
-        }
-        Vector3 MoveMe = new Vector3(behaviorManager._MovementX * behaviorManager._speed * Time.deltaTime, 0, 0);
-        behaviorManager._rb.AddForce(MoveMe);
+        behaviorManager.transform.position = Vector3.MoveTowards(behaviorManager.transform.position, behaviorManager._points[_index].position, _speed * Time.deltaTime);
+       
+        
+
+
+       
+        
         base.Active();
     }
+    void updateIndex()
+    {
+       
+        if (_index == behaviorManager._points.Length - 1)
+        {
+            _index = 0;
+        }
+        else { _index++; }
+        Debug.Log("I changed the index to " + _index);
+    }
 
+    private void checkForPlayer()
+    {
+        _lookTime -= Time.deltaTime;
+        
+        if(_lookTime <= 0)
+        {
+            behaviorManager.sightsToSee = Physics2D.OverlapCircleAll(behaviorManager.transform.position, behaviorManager._lookRadius);
+            if(behaviorManager.sightsToSee.Length > 0)
+            {
+                for (int i = 0; i < behaviorManager.sightsToSee.Length; i++)
+                {
+                    if(behaviorManager.sightsToSee[i].CompareTag("Player"))
+                    {
+                        behaviorManager.target = behaviorManager.sightsToSee[i].transform;
+                        behaviorManager.SetState(new SimpleEngage(behaviorManager));
 
+                    }
+                }
+               
 
+            }
+            _lookTime = _maxLookTime;  
+        }
+
+    }
 
 
 }

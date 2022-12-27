@@ -488,7 +488,7 @@ GameObject:
   - component: {fileID: 98974870}
   - component: {fileID: 98974872}
   - component: {fileID: 98974871}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3527,7 +3527,7 @@ GameObject:
   - component: {fileID: 587069421}
   - component: {fileID: 587069423}
   - component: {fileID: 587069422}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4763,7 +4763,7 @@ GameObject:
   - component: {fileID: 1066188273}
   - component: {fileID: 1066188274}
   - component: {fileID: 1066188271}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -4896,7 +4896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066188266}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.901, y: -2.466, z: 0}
+  m_LocalPosition: {x: -2.86, y: -1.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1218192853}
@@ -5359,7 +5359,7 @@ GameObject:
   - component: {fileID: 1218192856}
   - component: {fileID: 1218192855}
   - component: {fileID: 1218192854}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7268,7 +7268,7 @@ GameObject:
   - component: {fileID: 1593689162}
   - component: {fileID: 1593689164}
   - component: {fileID: 1593689163}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: OxygenMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8262,7 +8262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765507130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.43, y: -0.37, z: 0}
+  m_LocalPosition: {x: -0.43, y: -0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1883797054}
@@ -8280,7 +8280,7 @@ GameObject:
   - component: {fileID: 1769726263}
   - component: {fileID: 1769726265}
   - component: {fileID: 1769726264}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: HealthMeter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8774,7 +8774,7 @@ GameObject:
   - component: {fileID: 1878919378}
   - component: {fileID: 1878919380}
   - component: {fileID: 1878919379}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8954,7 +8954,7 @@ GameObject:
   - component: {fileID: 1895546962}
   - component: {fileID: 1895546964}
   - component: {fileID: 1895546963}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27120,6 +27120,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5986527621014429494, guid: ee6e95c9424ed10478e1bad9951952c1,
+        type: 3}
+      propertyPath: objectHealth
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5986527621014429495, guid: ee6e95c9424ed10478e1bad9951952c1,
         type: 3}
       propertyPath: m_RootOrder
@@ -27128,17 +27133,17 @@ PrefabInstance:
     - target: {fileID: 5986527621014429495, guid: ee6e95c9424ed10478e1bad9951952c1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.98
+      value: 16.38
       objectReference: {fileID: 0}
     - target: {fileID: 5986527621014429495, guid: ee6e95c9424ed10478e1bad9951952c1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.15
+      value: -0.55
       objectReference: {fileID: 0}
     - target: {fileID: 5986527621014429495, guid: ee6e95c9424ed10478e1bad9951952c1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.45019946
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5986527621014429495, guid: ee6e95c9424ed10478e1bad9951952c1,
         type: 3}
@@ -27174,6 +27179,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986527621014429497, guid: ee6e95c9424ed10478e1bad9951952c1,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986527621014429497, guid: ee6e95c9424ed10478e1bad9951952c1,
+        type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5986527621014429498, guid: ee6e95c9424ed10478e1bad9951952c1,
+        type: 3}
+      propertyPath: _lookRadius
+      value: 6.54
       objectReference: {fileID: 0}
     - target: {fileID: 5986527621014429498, guid: ee6e95c9424ed10478e1bad9951952c1,
         type: 3}
