@@ -13,6 +13,8 @@ public class Patrolling : State
 
     int _index;
 
+    bool _facingRight = true;
+
 
 
     public Patrolling(BehaviorManager behaviorManager) : base(behaviorManager)
@@ -46,14 +48,18 @@ public class Patrolling : State
 
         }
         behaviorManager.transform.position = Vector3.MoveTowards(behaviorManager.transform.position, behaviorManager._points[_index].position, _speed * Time.deltaTime);
-       
-        
+
+
+        if(behaviorManager.transform.position.x < behaviorManager._points[_index].position.x) { behaviorManager._facingRight = true; } else { behaviorManager._facingRight = false; }   
+
+        behaviorManager.transform.rotation = behaviorManager._facingRight ? Quaternion.Euler(0,180,0) : Quaternion.Euler(0,0,0);
 
 
        
         
         base.Active();
     }
+    
     void updateIndex()
     {
        
@@ -64,6 +70,7 @@ public class Patrolling : State
         else { _index++; }
         Debug.Log("I changed the index to " + _index);
     }
+    
 
     private void checkForPlayer()
     {

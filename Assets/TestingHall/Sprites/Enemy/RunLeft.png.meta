@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 92281f240afcdaa4dbde96eedb2bd147
+guid: 258e233af06dd3d4ea2debc43951ec13
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3333487156739236447
-    second: AttackAnimation_0
+      213: 9161728861208897855
+    second: RunLeft_0
   - first:
-      213: 6924721027664933009
-    second: AttackAnimation_1
+      213: -3337512207535016368
+    second: RunLeft_1
+  - first:
+      213: -1380210117505783096
+    second: RunLeft_2
+  - first:
+      213: -5827694624189523360
+    second: RunLeft_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,43 +123,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AttackAnimation_0
+      name: RunLeft_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.017006245, y: 0.5}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f52e4c058ece24e20800000000000000
-      internalID: 3333487156739236447
+      spriteID: f39ecccbbdff42f70800000000000000
+      internalID: 9161728861208897855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackAnimation_1
+      name: RunLeft_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 32
         height: 32
-      alignment: 9
-      pivot: {x: 0.47505653, y: 0.515873}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19075aef51d891060800000000000000
-      internalID: 6924721027664933009
+      spriteID: 05678548456cea1d0800000000000000
+      internalID: -3337512207535016368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunLeft_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8caeaa6f53288dce0800000000000000
+      internalID: -1380210117505783096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RunLeft_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06adab1ad9edf1fa0800000000000000
+      internalID: -5827694624189523360
       vertices: []
       indices: 
       edges: []

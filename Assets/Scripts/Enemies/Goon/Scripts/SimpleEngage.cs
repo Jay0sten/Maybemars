@@ -24,9 +24,10 @@ public class SimpleEngage : State
     }
     public override void Active()
     {
-
+        if(behaviorManager.target.position.x > behaviorManager.transform.position.x) {  behaviorManager._facingRight = true; } else { behaviorManager._facingRight = false; }
 
         behaviorManager.transform.position = Vector3.MoveTowards(behaviorManager.transform.position, behaviorManager.target.position, _speed * Time.deltaTime);
+        behaviorManager.transform.rotation = behaviorManager._facingRight ? Quaternion.Euler(0, 180, 0) : Quaternion.Euler(0, 0, 0);
         base.Active();
     }
    

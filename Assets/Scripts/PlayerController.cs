@@ -217,7 +217,14 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void TakeKnockback(int xAmount, int yAmount, Transform Eposition)
+    {
 
+        rb.AddForce(new Vector2(Mathf.Sign(Eposition.position.x - transform.position.x) * xAmount *-1, yAmount * 2));
+
+
+    }
+    
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;

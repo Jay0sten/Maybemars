@@ -10,11 +10,13 @@ public class BehaviorManager : StateMachine
     //Components
     [SerializeField] public Transform[] _points;
     public Rigidbody2D _rb;
+    [HideInInspector] public Animator _animator;
 
     //Fields
     [SerializeField] public float _speed = 20;
     [SerializeField] public float _maxSpeed = 18;
     public float _MovementX;
+    [HideInInspector] public bool _facingRight;
 
     //Engaging
     public Transform target;
@@ -24,6 +26,7 @@ public class BehaviorManager : StateMachine
 
     private void Awake()
     {
+        _animator = GetComponent<Animator>();
         SetState(new Patrolling(this));
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -37,7 +40,19 @@ public class BehaviorManager : StateMachine
         state.Active();
         
         
-       
+    
+    }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("I smell you");
+            PlayerController playerCon = other.GetComponent<PlayerController>();
+            playerCon.TakeKnockback(5000, 100, other.transform);
+            other.GetComponent<PlayerStats>().TakeDamage(5);
+        }
+
     }
 
     private void OnDrawGizmos()

@@ -14,7 +14,7 @@ public class PlayerStats : MonoBehaviour
     [Header("Components")]
     public StatBar OxygenStatBar;
     public StatBar HealthStatBar;
-
+    [SerializeField] AudioSource hitMeBitch;
 
     
     
@@ -46,5 +46,6 @@ public class PlayerStats : MonoBehaviour
     {
         Health -= damage;
         HealthStatBar.SetValue(Health);
+        hitMeBitch.Play();
     }
 }
